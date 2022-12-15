@@ -6,14 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="204dp"
+        android:ems="10"
+        android:hint="Enter email"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:onClick="signInClicked"
+        android:text="LogIN"
+        app:layout_constraintStart_toStartOf="@+id/passwordText"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:onClick="signUpClicked"
+        android:text="signup"
+        app:layout_constraintEnd_toEndOf="@+id/passwordText"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/download" />
+
+    <Button
+        android:id="@+id/buttonResetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="62dp"
+        android:onClick="resetPasswordClicked"
+        android:text="Reset Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/signInButton"
+        app:layout_constraintStart_toStartOf="@+id/loginButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
