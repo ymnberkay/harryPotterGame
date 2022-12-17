@@ -1,11 +1,11 @@
 package com.ymnberkay.test1.models
 
 data class MemortCard(
-    val identifier: Int,
+    val identifier: Int ,
     var isOpen: Boolean = false,
     var isMatched: Boolean = false,
-    //var name: String ,
-    //var home: String,
-    //var image: String,
-    //var point: Int
+    var name: String ?= null,
+    var home: String ?= null,
+    var cardName: String ?= null,
+    var point: Int ?= null
 )

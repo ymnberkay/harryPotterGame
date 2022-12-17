@@ -18,12 +18,12 @@ class GameScreenActivity : AppCompatActivity() {
         binding.buttonOnePlayer.setOnClickListener {
             val intent = Intent(this,FeedActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
         binding.buttonTwoPlayer.setOnClickListener {
             val intent = Intent(this,Feed2Activity::class.java)
             startActivity(intent)
-            finish()
+
         }
     }
 

@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.ymnberkay.test1.models.BoardSize
 import com.ymnberkay.test1.models.MemortCard
 import kotlin.math.min
@@ -51,10 +53,21 @@ class MemoryBoardAdapter(
     override fun getItemCount() = boardSize.numCards
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        private val imageButton = itemView.findViewById<ImageButton>(R.id.imageButton)
+        private val imageButton = itemView.findViewById<ImageView>(R.id.imageButton)
         fun bind(position: Int){
             val memoryCard: MemortCard = cards[position]
-            imageButton.setImageResource(if (memoryCard.isOpen) memoryCard.identifier else R.drawable.download)
+            when {
+                memoryCard.isOpen -> Glide
+                    .with(imageButton.context)
+                    .load(memoryCard.cardName)
+                    .placeholder(R.drawable.download)
+                    .into(imageButton)
+                else -> Glide
+                    .with(imageButton.context)
+                    .load(R.drawable.download)
+                    .placeholder(R.drawable.download)
+                    .into(imageButton)
+            }
             imageButton.alpha = if (memoryCard.isMatched) .4f else 1.0f
             val colorStateList = if(memoryCard.isMatched) ContextCompat.getColorStateList(context,R.color.color_gray) else null
             ViewCompat.setBackgroundTintList(imageButton,colorStateList)
